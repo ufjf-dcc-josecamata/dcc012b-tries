@@ -1,41 +1,47 @@
+/**
+ * Implementação do tipo abstrado de dados - Trie
+*/
+
 #ifndef TRIE_H__
 #define TRIE_H__
 
 #include <string>
 using namespace std;
 
+#define NCHARS 26
+
 class trie;
-
-class TrieNode {    
-friend class Trie;
-public:
-    TrieNode() : is_word(false) {
-        for (int i = 0; i < 26; i++) {
-            children[i] = nullptr;
+class TrieNode
+{    
+    friend class Trie;
+    public:
+        TrieNode() : is_word(false) {
+            for (int i = 0; i < NCHARS; i++) {
+                children[i] = nullptr;
+            }
         }
-    }
 
-    TrieNode* getChild(char c) {
-        return children[c - 'a'];
-    }
+        TrieNode* getChild(char c) {
+            return children[c - 'a'];
+        }
 
-    bool isEndOfWord() {
-        return is_word;
-    }
+        bool isEndOfWord() {
+            return is_word;
+        }
 
-    bool isLastNode()
-    {
-        for (int i = 0; i < 26; i++)
+        bool isLastNode()
         {
-            if (children[i])
-                return false;
+            for (int i = 0; i < NCHARS; i++)
+            {
+                if (children[i])
+                    return false;
+            }
+            return true;
         }
-        return true;
-    }
 
     private: 
         bool      is_word;
-        TrieNode* children[26];
+        TrieNode* children[NCHARS];
 };
 
 class Trie {

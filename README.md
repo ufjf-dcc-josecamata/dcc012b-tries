@@ -29,7 +29,7 @@ class TrieNode {
 }
  ```
 
-A classe abaixo define um tipo abstrado de dados para representar um Trie. 
+A classe abaixo define um tipo abstrado de dados para representar um Trie e as suas operações básicas.
 
  ```C++
 class Trie {
